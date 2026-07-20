@@ -21,11 +21,11 @@ export const hero = {
 
 export const mission = {
   heading: "Our Mission",
-  // ⚠️ D2 — BLOCKED on the founder's voice. Do not invent this copy. The
-  // placeholder is kept deliberately so the gap is visible in the rendered page
-  // rather than hidden. See PRD.md D2.
+  // Filled 2026-07-19 from founder-provided content (see designs/founder-content.md).
+  // Synthesized from Tosha Dennis's stated mission ("reset, refocus, and thrive")
+  // and the company capability summary — no facts invented. Closes D2 for Home.
   statement:
-    "[PLACEHOLDER: Insert mission statement here - 1 to 2 sentences describing the firm's dedication to bridging executive excellence and service-driven resilience.]",
+    "Our mission is to help people reset, refocus, and thrive. Through structured, accountability-based coaching, we drive sustainable behavior change that strengthens resilience, health, and performance across the federal, military, and corporate communities we serve.",
 } as const;
 
 export const intro = {
