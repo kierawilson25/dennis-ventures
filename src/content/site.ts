@@ -35,3 +35,22 @@ export const footerLinks = [
 ] as const;
 
 export const certifications = "SDVOSB & WOSB Certified";
+
+/**
+ * Structured certification list — drives the About page's certification row.
+ * Data-driven so that resolving D8 (WOSB unverified — the founder's capability
+ * summary states SDVOSB only) is a one-line edit here, not a hunt through JSX.
+ * See PRD.md D8 and designs/founder-content.md.
+ */
+export const certificationList = [
+  {
+    abbr: "SDVOSB",
+    full: "Service-Disabled Veteran-Owned Small Business",
+    verified: true,
+  },
+  {
+    abbr: "WOSB",
+    full: "Woman-Owned Small Business",
+    verified: false, // ⚠️ D8 — unverified; confirm with founder before launch.
+  },
+] as const;
