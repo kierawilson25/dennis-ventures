@@ -1,0 +1,208 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e6e8ea",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#091e25",
+                    "background": "#f4fafd",
+                    "secondary-container": "#e6e6fa",
+                    "on-surface": "#191c1e",
+                    "on-tertiary-container": "#566b72",
+                    "inverse-surface": "#2d3133",
+                    "outline-variant": "#c7c5cc",
+                    "surface-container-low": "#eef5f7",
+                    "on-primary-container": "#656677",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d0e6ef",
+                    "tertiary": "#4d6169",
+                    "on-tertiary-fixed-variant": "#364a51",
+                    "on-primary-fixed": "#191b29",
+                    "primary-fixed-dim": "#c5c5d8",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "primary": "#00a8cc",
+                    "on-secondary-fixed-variant": "#005c70",
+                    "inverse-primary": "#c5c5d8",
+                    "error-container": "#ffdad6",
+                    "outline": "#77767d",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "tertiary-container": "#d5ebf4",
+                    "on-secondary-fixed": "#002025",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary-container": "#00a8cc",
+                    "surface": "#f4fafd",
+                    "secondary": "#00a8cc",
+                    "tertiary-fixed-dim": "#b4cad3",
+                    "primary-container": "#e6e6fa",
+                    "surface-bright": "#f4fafd",
+                    "secondary-fixed-dim": "#00d4ff",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#00a8cc",
+                    "secondary-fixed": "#00e1ff",
+                    "on-primary-fixed-variant": "#444655",
+                    "surface-dim": "#d4dbdd",
+                    "surface-container": "#eceef0",
+                    "on-background": "#191c1e",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#46464c",
+                    "primary-fixed": "#e1e1f5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "0.75rem",
+                    "xl": "1rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "section-padding": "120px",
+                    "container-max": "1200px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Manrope", "sans-serif"],
+                    "body-md": ["Manrope", "sans-serif"],
+                    "label-sm": ["Manrope", "sans-serif"],
+                    "headline-md": ["Manrope", "sans-serif"],
+                    "headline-xl-mobile": ["Manrope", "sans-serif"],
+                    "headline-xl": ["Manrope", "sans-serif"],
+                    "headline-lg": ["Manrope", "sans-serif"],
+                    "headline-lg-mobile": ["Manrope", "sans-serif"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "headline-xl-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    }catch(_e){}</script></head><body class="bg-surface selection:bg-secondary-container selection:text-on-secondary-container overflow-x-hidden">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm transition-all duration-300">
+    <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+        <div class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">Dennis Ventures</div>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="text-on-surface-variant hover:text-secondary transition-colors font-medium font-label-sm text-label-sm" href="#">Home</a>
+            <a class="text-on-surface-variant hover:text-secondary transition-colors font-medium font-label-sm text-label-sm" href="#">About</a>
+            <a class="text-on-surface-variant hover:text-secondary transition-colors font-medium font-label-sm text-label-sm" href="#">Solutions</a>
+            <a class="text-secondary font-semibold border-b-2 border-secondary pb-1 font-label-sm text-label-sm" href="#">Contact</a>
+        </div>
+        <button class="bg-secondary text-on-secondary px-6 py-2.5 rounded-full font-label-sm text-label-sm hover:opacity-90 transition-all duration-300 active:scale-95 font-semibold">
+            Book a Consultation
+        </button>
+    </div>
+</nav>
+
+<main class="pt-32 pb-section-padding min-h-screen hero-gradient">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <!-- Contact Header Section -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-6">
+            <span class="inline-block py-1.5 px-4 rounded-lg bg-primary-container text-on-primary-container font-label-sm text-label-sm mb-6 uppercase tracking-widest font-bold">Get In Touch</span>
+            <h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface tracking-tight">Connect with Dennis Ventures.</h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                Whether you're transitioning out of federal service or scaling your executive leadership, we're here to guide the journey. Let’s start a conversation that matters.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+            <!-- Form Section -->
+            <div class="lg:col-span-7">
+                <div class="glass-card rounded-xl p-8 md:p-12 transition-all duration-500 hover:shadow-xl">
+                    <form class="space-y-8" id="contactForm">
+                        <div class="space-y-6">
+                            <div class="relative group">
+                                <label class="block font-label-sm text-label-sm text-on-surface-variant mb-2 ml-1" for="name">Full Name</label>
+                                <input class="w-full px-6 py-4 rounded-lg bg-surface-container-low border-none focus:ring-2 focus:ring-secondary/20 transition-all font-body-md text-body-md placeholder:text-outline/50" id="name" name="name" placeholder="How should we address you?" type="text">
+                            </div>
+                            <div class="relative group">
+                                <label class="block font-label-sm text-label-sm text-on-surface-variant mb-2 ml-1" for="email">Email Address</label>
+                                <input class="w-full px-6 py-4 rounded-lg bg-surface-container-low border-none focus:ring-2 focus:ring-secondary/20 transition-all font-body-md text-body-md placeholder:text-outline/50" id="email" name="email" placeholder="Where can we reach you?" type="email">
+                            </div>
+                            <div class="relative group">
+                                <label class="block font-label-sm text-label-sm text-on-surface-variant mb-2 ml-1" for="message">Your Vision or Message</label>
+                                <textarea class="w-full px-6 py-4 rounded-lg bg-surface-container-low border-none focus:ring-2 focus:ring-secondary/20 transition-all font-body-md text-body-md placeholder:text-outline/50 resize-none" id="message" name="message" placeholder="Tell us about your goals or challenges..." rows="5"></textarea>
+                            </div>
+                        </div>
+                        <button class="w-full md:w-auto bg-secondary text-on-secondary font-bold px-10 py-4 rounded-full text-lg hover:shadow-xl transition-all active:scale-95 flex justify-center items-center gap-3" type="submit">
+                            Send Message
+                            <span class="material-symbols-outlined text-xl">arrow_forward</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Imagery Column -->
+            <div class="lg:col-span-5 h-full">
+                <div class="relative rounded-xl overflow-hidden shadow-2xl group h-full">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDW7qll8Gc1gDRPFJKLb3nTm1u60EKVpzbW8I4c1GADdBLFHHQwvhN3jdxlHWORdUFmeftCIOZ0-WTK_JjdEI1_HAdb19Nhmf8GRbtOTyNASagSJSmH_dk1Q_g5r0JiL8uxsrLPk5S423wfFRnfHJvfTD0weWo46gsEnQAiIf28FG6a1xGngghcGd95RRJCbxhT3XKdhIqb8lUuV5fcMVai52PIMFGkKDVjaxyJIA80Ngdd4ubqFTxDbHGs8Yqhg5kK76e7PMuLaXVx&quot;);"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-10 left-10 text-white">
+                        <p class="font-headline-md text-headline-md font-bold mb-2">Steady hands.</p>
+                        <p class="font-body-lg text-body-lg opacity-90">In a sea of change.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant/20">
+    <div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto gap-gutter">
+        <div class="flex flex-col items-center md:items-start gap-4">
+            <div class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">Dennis Ventures</div>
+            <p class="text-on-surface-variant font-label-sm text-label-sm text-center md:text-left">
+                © 2024 Dennis Ventures. SDVOSB &amp; WOSB Certified.
+            </p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6">
+            <a class="text-on-surface-variant hover:text-secondary transition-colors font-medium font-label-sm text-label-sm hover:underline decoration-secondary" href="#">Privacy Policy</a>
+            <a class="text-on-surface-variant hover:text-secondary transition-colors font-medium font-label-sm text-label-sm hover:underline decoration-secondary" href="#">Terms of Service</a>
+            <a class="text-on-surface-variant hover:text-secondary transition-colors font-medium font-label-sm text-label-sm hover:underline decoration-secondary" href="#">SDVOSB Status</a>
+            <a class="text-on-surface-variant hover:text-secondary transition-colors font-medium font-label-sm text-label-sm hover:underline decoration-secondary" href="#">WOSB Status</a>
+        </div>
+        <div class="flex gap-4">
+            <button class="w-10 h-10 rounded-lg flex items-center justify-center bg-surface-container text-secondary hover:bg-secondary hover:text-on-secondary transition-all">
+                <span class="material-symbols-outlined text-xl">share</span>
+            </button>
+            <button class="w-10 h-10 rounded-lg flex items-center justify-center bg-surface-container text-secondary hover:bg-secondary hover:text-on-secondary transition-all">
+                <span class="material-symbols-outlined text-xl">mail</span>
+            </button>
+        </div>
+    </div>
+</footer>
+
+<script class="">
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('contactForm');
+        
+        // Micro-interaction for scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-md');
+                nav.classList.remove('py-4', 'shadow-sm');
+            } else {
+                nav.classList.add('py-4', 'shadow-sm');
+                nav.classList.remove('py-2', 'shadow-md');
+            }
+        });
+
+        // Form submission handling
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button');</script></body></html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dennis Ventures | Empowering Transitions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Shared Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e6e8ea",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#091e25",
+                    "background": "#f4fafd",
+                    "secondary-container": "#e6e6fa", // Using lavender for soft containers
+                    "on-surface": "#191c1e",
+                    "on-tertiary-container": "#566b72",
+                    "inverse-surface": "#2d3133",
+                    "outline-variant": "#c7c5cc",
+                    "surface-container-low": "#eef5f7",
+                    "on-primary-container": "#656677",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#d0e6ef",
+                    "tertiary": "#4d6169",
+                    "on-tertiary-fixed-variant": "#364a51",
+                    "on-primary-fixed": "#191b29",
+                    "primary-fixed-dim": "#c5c5d8",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "primary": "#00a8cc", // Updated truer aqua from DESIGN_SYSTEM_14
+                    "on-secondary-fixed-variant": "#005c70",
+                    "inverse-primary": "#c5c5d8",
+                    "error-container": "#ffdad6",
+                    "outline": "#77767d",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "tertiary-container": "#d5ebf4",
+                    "on-secondary-fixed": "#002025",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary-container": "#00a8cc",
+                    "surface": "#f4fafd",
+                    "secondary": "#00a8cc", // Updated truer aqua from DESIGN_SYSTEM_14
+                    "tertiary-fixed-dim": "#b4cad3",
+                    "primary-container": "#e6e6fa", // Lavender
+                    "surface-bright": "#f4fafd",
+                    "secondary-fixed-dim": "#00d4ff",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#00a8cc",
+                    "secondary-fixed": "#00e1ff",
+                    "on-primary-fixed-variant": "#444655",
+                    "surface-dim": "#d4dbdd",
+                    "surface-container": "#eceef0",
+                    "on-background": "#191c1e",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#46464c",
+                    "primary-fixed": "#e1e1f5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "0.75rem",
+                    "xl": "1rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "section-padding": "120px",
+                    "container-max": "1200px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Manrope", "sans-serif"],
+                    "body-md": ["Manrope", "sans-serif"],
+                    "label-sm": ["Manrope", "sans-serif"],
+                    "headline-md": ["Manrope", "sans-serif"],
+                    "headline-xl-mobile": ["Manrope", "sans-serif"],
+                    "headline-xl": ["Manrope", "sans-serif"],
+                    "headline-lg": ["Manrope", "sans-serif"],
+                    "headline-lg-mobile": ["Manrope", "sans-serif"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "headline-xl-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f4fafd;
+            color: #191c1e;
+            font-family: 'Manrope', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(230, 230, 250, 0.5); /* Subtle Lavender border */
+            box-shadow: 0 8px 32px 0 rgba(200, 200, 255, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            /* Deeper Lavender and Updated Aqua gradient mix */
+            background: radial-gradient(circle at 70% 30%, #e6e6fa 0%, #f4fafd 100%);
+        }
+        .ocean-blur {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 168, 204, 0.08) 0%, transparent 70%); /* Updated Aqua blur */
+            filter: blur(80px);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm transition-all duration-300">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">
+            Dennis Ventures
+        </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-secondary font-semibold border-b-2 border-secondary pb-1 font-label-sm text-label-sm" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-medium font-label-sm text-label-sm" href="#">About</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-medium font-label-sm text-label-sm" href="#">Solutions</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-medium font-label-sm text-label-sm" href="#">Contact</a>
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-2.5 rounded-lg font-label-sm text-label-sm hover:opacity-90 transition-all duration-300 active:scale-95 font-semibold">
+            Book a Consultation
+        </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 hero-gradient overflow-hidden" style="background-image: linear-gradient(rgba(244, 250, 253, 0.1) 0%, rgba(244, 250, 253, 0.4) 50%, rgba(244, 250, 253, 1) 100%), url('https://lh3.googleusercontent.com/aida/AP1WRLst9gAZoG1feAAZ8atA5MlswYVeUYNABt_jj-snuhMrfhrL0BbRdYEddpDcW11DJ1MPWT6nFIDKkDsFojD2aM8pvl3XYHiFZIiTpigbgXYr5qfiUjJKGZseWaMsoWLdQV0TCkZHwXpqj_ZPJ72zcVKfavuuJOZP67-K1_-9ViZiPxiPTC5Tm0oXuiJ8iMxuR9ay4VoK9Re5QMqmZZRAHLnPq0DkHUzrA1aT9CzPW0eF9xuxcE9XUzr9Ye2K'); background-size: cover; background-position: center center;">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop gap-gutter items-center flex flex-col text-center">
+<div class="z-10 -mt-32">
+<span class="inline-block py-1.5 px-4 rounded-lg bg-primary-container text-on-primary-container font-label-sm text-label-sm mb-6 uppercase tracking-widest font-bold">
+                Executive &amp; Health Coaching
+            </span>
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-6 leading-tight mx-auto max-w-4xl">
+                Empowering Transitions with <span class="text-secondary">Calm &amp; Clarity</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto pt-5" style="margin-top: 70px;"></p><div><br/></div><div><br/></div>A steady hand in your sea of change. We coach across health, life, career transitions, and executive growth, whatever comes next.<p></p>
+<div class="flex flex-wrap gap-4 justify-center" style="margin-top: 70px;">
+<button class="bg-secondary text-on-secondary px-8 py-4 rounded-lg font-label-sm text-label-sm hover:shadow-lg transition-all font-bold">
+                    Start Your Journey
+                </button>
+<button class="border border-outline text-secondary px-8 py-4 rounded-lg font-label-sm text-label-sm hover:bg-surface-container-low transition-all font-bold">
+                    View Solutions
+                </button>
+</div>
+</div>
+</div>
+</section><section class="py-24 md:py-32 relative overflow-hidden" style="background: linear-gradient(to bottom, transparent 0%, #e6e6fa 20%, #e6e6fa 80%, #f4fafd 100%);">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<div class="max-w-3xl mx-auto">
+<h2 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-8 tracking-tight">
+        Our Mission
+      </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+        [PLACEHOLDER: Insert mission statement here - 1 to 2 sentences describing the firm's dedication to bridging executive excellence and service-driven resilience.]
+      </p>
+</div>
+</div>
+</section>
+<!-- Introduction Section -->
+<section class="bg-surface pb-24">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6">
+                    A Veteran-Owned Perspective on Growth.
+                </h2>
+<div class="h-1.5 w-16 bg-secondary rounded-full"></div>
+</div>
+<div class="md:col-span-7">
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+                    Dennis Ventures LLC is founded on the principles of disciplined leadership and holistic well-being. We understand that career transitions require more than just strategy; they require mental clarity and emotional resilience.
+                </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Our mission is to bridge the gap between rigorous organizational standards and human-centric growth. We serve executives and government partners with the same steady, focused hand that defined our military service.
+                </p>
+</div>
+</div>
+<!-- Bento Grid of Services -->
+<div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="glass-card p-10 rounded-lg hover:shadow-xl transition-all duration-300 border-b-4 border-b-primary-container">
+<div class="w-14 h-14 rounded-lg bg-primary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-secondary text-3xl font-light" data-icon="clinical_notes">clinical_notes</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3 text-on-surface font-bold">Health Coaching</h3>
+<p class="text-on-surface-variant font-body-md text-body-md">Optimizing vitality for leaders who cannot afford to burn out.</p>
+</div>
+<div class="glass-card p-10 rounded-lg hover:shadow-xl transition-all duration-300 border-b-4 border-b-secondary">
+<div class="w-14 h-14 rounded-lg bg-tertiary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-secondary text-3xl font-light" data-icon="schema">schema</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3 text-on-surface font-bold">Executive Strategy</h3>
+<p class="text-on-surface-variant font-body-md text-body-md">Navigating high-stakes environments with precision and authority.</p>
+</div>
+<div class="glass-card p-10 rounded-lg hover:shadow-xl transition-all duration-300 border-b-4 border-b-primary-container">
+<div class="w-14 h-14 rounded-lg bg-primary-container/40 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-secondary text-3xl font-light" data-icon="sync">sync</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3 text-on-surface font-bold">Strategic Transition</h3>
+<p class="text-on-surface-variant font-body-md text-body-md">Guiding you through the transition as one phase of life ends and the next begins with clarity and purpose.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action Section -->
+<section class="py-section-padding">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="relative bg-primary-container rounded-xl overflow-hidden p-12 md:p-24 text-center">
+<!-- Subtle background pattern or element -->
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(#00a8cc_1px,transparent_1px)] [background-size:20px_20px]"></div>
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-6">
+                    Ready for Your Next Chapter?
+                </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
+                    Whether you're transitioning out of uniform or scaling your executive presence, we provide the clarity to navigate the path forward.
+                </p>
+<button class="bg-secondary text-on-secondary font-bold px-10 py-5 rounded-lg text-lg hover:shadow-xl transition-all active:scale-95">
+                    Start Your Journey
+                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto gap-gutter">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">
+                Dennis Ventures
+            </div>
+<p class="text-on-surface-variant font-label-sm text-label-sm text-center md:text-left">
+                © 2024 Dennis Ventures. SDVOSB &amp; WOSB Certified.
+            </p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-medium font-label-sm text-label-sm hover:underline decoration-secondary" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-medium font-label-sm text-label-sm hover:underline decoration-secondary" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-medium font-label-sm text-label-sm hover:underline decoration-secondary" href="#">SDVOSB Status</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-medium font-label-sm text-label-sm hover:underline decoration-secondary" href="#">WOSB Status</a>
+</div>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-lg flex items-center justify-center bg-surface-container text-secondary hover:bg-secondary hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="share">share</span>
+</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center bg-surface-container text-secondary hover:bg-secondary hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="mail">mail</span>
+</button>
+</div>
+</div>
+</footer>
+<script>
+    // Micro-interactions for scrolling
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.classList.add('py-2', 'shadow-md');
+            nav.classList.remove('py-4', 'shadow-sm');
+        } else {
+            nav.classList.add('py-4', 'shadow-sm');
+            nav.classList.remove('py-2', 'shadow-md');
+        }
+    });
+</script>
+</body></html>

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dennis Ventures — Design System A/B</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ---- System A: Manrope + aqua (home, about, contact) ---- */
+  .sys-a {
+    --font: 'Manrope', sans-serif;
+    --primary: #00a8cc;
+    --secondary: #00a8cc;
+    --primary-container: #e6e6fa;
+    --secondary-container: #e6e6fa;
+    --on-primary-container: #656677;
+    --surface: #f4fafd;
+    --surface-container-low: #eef5f7;
+    --on-surface: #191c1e;
+    --on-surface-variant: #46464c;
+    --outline: #77767d;
+    --outline-variant: #c7c5cc;
+    --radius: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+  }
+  /* ---- System B: Inter + grey (solutions) ---- */
+  .sys-b {
+    --font: 'Inter', sans-serif;
+    --primary: #5c5d6e;
+    --secondary: #00a8cc;
+    --primary-container: #e6e6fa;
+    --secondary-container: #00f8f8;
+    --on-primary-container: #656677;
+    --surface: #f7f9fb;
+    --surface-container-low: #f2f4f6;
+    --on-surface: #191c1e;
+    --on-surface-variant: #46464c;
+    --outline: #77767d;
+    --outline-variant: #c7c5cc;
+    --radius: 0.25rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+  }
+
+  body { font-family: 'Inter', sans-serif; background: #0f1214; color: #e8eaed; padding: 32px 24px 80px; }
+  .wrap { max-width: 1400px; margin: 0 auto; }
+  h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .sub { color: #9aa0a6; font-size: 14px; margin-bottom: 8px; line-height: 1.6; }
+  .callout { background: #1a2b33; border-left: 3px solid #00a8cc; padding: 14px 18px; border-radius: 6px; margin: 20px 0 32px; font-size: 14px; line-height: 1.65; color: #cfd4d8; }
+  .callout b { color: #fff; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 1000px) { .grid { grid-template-columns: 1fr; } }
+
+  .col-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+  .col-head h2 { font-size: 15px; font-weight: 600; }
+  .tag { font-size: 11px; padding: 3px 8px; border-radius: 99px; font-weight: 600; letter-spacing: .04em; }
+  .tag-a { background: #0c3d4a; color: #4fd8f5; }
+  .tag-b { background: #3a3b45; color: #b9bac6; }
+  .used-on { font-size: 12px; color: #9aa0a6; margin-bottom: 12px; }
+
+  /* the rendered specimen */
+  .demo { background: var(--surface); font-family: var(--font); color: var(--on-surface); border-radius: 10px; overflow: hidden; border: 1px solid #2a2f33; }
+  .demo-nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 22px; border-bottom: 1px solid rgba(199,197,204,.3); background: rgba(244,250,253,.8); }
+  .demo-logo { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+  .demo-links { display: flex; gap: 20px; align-items: center; }
+  .demo-links a { font-size: 14px; font-weight: 500; letter-spacing: .05em; color: var(--on-surface-variant); text-decoration: none; }
+  .demo-links a.on { color: var(--secondary); font-weight: 600; border-bottom: 2px solid var(--secondary); padding-bottom: 4px; }
+  .btn-solid { background: var(--secondary); color: #fff; border: none; padding: 10px 20px; border-radius: var(--radius-lg); font-family: var(--font); font-size: 14px; font-weight: 600; letter-spacing: .05em; cursor: pointer; }
+  .btn-outline { background: transparent; color: var(--secondary); border: 1px solid var(--outline); padding: 10px 20px; border-radius: var(--radius-lg); font-family: var(--font); font-size: 14px; font-weight: 700; letter-spacing: .05em; cursor: pointer; }
+
+  .demo-body { padding: 34px 22px 30px; }
+  .badge { display: inline-block; padding: 6px 14px; border-radius: var(--radius); background: var(--primary-container); color: var(--on-primary-container); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 18px; }
+  .h1 { font-size: 40px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin-bottom: 16px; }
+  .h1 em { font-style: normal; color: var(--secondary); }
+  .lede { font-size: 17px; line-height: 1.6; color: var(--on-surface-variant); margin-bottom: 24px; max-width: 46ch; }
+  .btn-row { display: flex; gap: 12px; margin-bottom: 34px; }
+  .rule { height: 6px; width: 64px; background: var(--secondary); border-radius: 99px; margin: 26px 0 18px; }
+
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .card { background: rgba(255,255,255,.7); backdrop-filter: blur(20px); border: 1px solid rgba(230,230,250,.5); box-shadow: 0 8px 32px 0 rgba(200,200,255,.1); padding: 22px; border-radius: var(--radius-lg); border-bottom: 4px solid var(--primary-container); }
+  .card-ico { width: 44px; height: 44px; border-radius: var(--radius-lg); background: var(--primary-container); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 20px; }
+  .card h3 { font-size: 19px; font-weight: 700; margin-bottom: 7px; }
+  .card p { font-size: 14px; line-height: 1.6; color: var(--on-surface-variant); }
+
+  .field { margin-top: 22px; }
+  .field label { display: block; font-size: 13px; letter-spacing: .05em; color: var(--on-surface-variant); margin-bottom: 7px; }
+  .field input { width: 100%; padding: 13px 16px; border-radius: var(--radius-lg); background: var(--surface-container-low); border: none; font-family: var(--font); font-size: 15px; color: var(--on-surface); }
+
+  /* token diff table */
+  .diff { margin-top: 52px; }
+  .diff h2 { font-size: 17px; margin-bottom: 6px; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 13px; }
+  th { text-align: left; padding: 9px 12px; background: #1c2126; color: #9aa0a6; font-weight: 600; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; }
+  td { padding: 9px 12px; border-bottom: 1px solid #232830; font-family: ui-monospace, monospace; }
+  td.name { font-family: inherit; color: #cfd4d8; }
+  .sw { display: inline-block; width: 13px; height: 13px; border-radius: 3px; margin-right: 7px; vertical-align: -2px; border: 1px solid rgba(255,255,255,.2); }
+  .same { color: #5f6b56; }
+  .yes { color: #7ee08a; font-family: inherit; font-size: 12px; }
+  .no  { color: #6b7280; font-family: inherit; font-size: 12px; }
+  .row-live { background: rgba(126,224,138,.04); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Design system A/B — which one becomes canonical?</h1>
+  <p class="sub">Same components, same markup, rendered under each token set. Decision <b>D1</b> in <code>PRD.md</code>.</p>
+
+  <div class="callout">
+    <b>The decision is narrower than the token diff suggests.</b> Of the 13 tokens that differ, most are never referenced by the markup.
+    <code>primary-container</code> — the lavender doing nearly all the visible container work — is <b>#e6e6fa in both</b>. So is <code>secondary</code> (<b>#00a8cc</b>), which drives every CTA, link, and accent rule.
+    What you are actually choosing between is <b>typeface</b> and <b>corner radius</b>, plus a background shift so subtle you will struggle to see it. The scary-looking grey <code>primary</code> and cyan <code>secondary-container</code> in System B appear in the markup <i>once</i> and <i>never</i>, respectively.
+  </div>
+
+  <div class="grid">
+    <!-- SYSTEM A -->
+    <div>
+      <div class="col-head"><h2>System A</h2><span class="tag tag-a">Manrope · looser radii</span></div>
+      <p class="used-on">Currently: Home · About · Contact &nbsp;→&nbsp; choosing this re-skins 1 page</p>
+      <div class="demo sys-a">
+        <div class="demo-nav">
+          <div class="demo-logo">Dennis Ventures</div>
+          <div class="demo-links"><a href="#" class="on">Home</a><a href="#">About</a><a href="#">Solutions</a></div>
+          <button class="btn-solid">Book a Consultation</button>
+        </div>
+        <div class="demo-body">
+          <span class="badge">Executive &amp; Health Coaching</span>
+          <div class="h1">Empowering Transitions with <em>Calm &amp; Clarity</em></div>
+          <p class="lede">A steady hand in your sea of change. We coach across health, life, career transitions, and executive growth.</p>
+          <div class="btn-row"><button class="btn-solid">Start Your Journey</button><button class="btn-outline">View Solutions</button></div>
+          <div class="cards">
+            <div class="card"><div class="card-ico">🩺</div><h3>Health Coaching</h3><p>Optimizing vitality for leaders who cannot afford to burn out.</p></div>
+            <div class="card"><div class="card-ico">📈</div><h3>Executive Strategy</h3><p>Navigating high-stakes environments with precision.</p></div>
+          </div>
+          <div class="rule"></div>
+          <div class="field"><label>Full Name</label><input placeholder="How should we address you?"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SYSTEM B -->
+    <div>
+      <div class="col-head"><h2>System B</h2><span class="tag tag-b">Inter · tighter radii</span></div>
+      <p class="used-on">Currently: Solutions only &nbsp;→&nbsp; choosing this re-skins 3 pages</p>
+      <div class="demo sys-b">
+        <div class="demo-nav">
+          <div class="demo-logo">Dennis Ventures</div>
+          <div class="demo-links"><a href="#" class="on">Home</a><a href="#">About</a><a href="#">Solutions</a></div>
+          <button class="btn-solid">Book a Consultation</button>
+        </div>
+        <div class="demo-body">
+          <span class="badge">Executive &amp; Health Coaching</span>
+          <div class="h1">Empowering Transitions with <em>Calm &amp; Clarity</em></div>
+          <p class="lede">A steady hand in your sea of change. We coach across health, life, career transitions, and executive growth.</p>
+          <div class="btn-row"><button class="btn-solid">Start Your Journey</button><button class="btn-outline">View Solutions</button></div>
+          <div class="cards">
+            <div class="card"><div class="card-ico">🩺</div><h3>Health Coaching</h3><p>Optimizing vitality for leaders who cannot afford to burn out.</p></div>
+            <div class="card"><div class="card-ico">📈</div><h3>Executive Strategy</h3><p>Navigating high-stakes environments with precision.</p></div>
+          </div>
+          <div class="rule"></div>
+          <div class="field"><label>Full Name</label><input placeholder="How should we address you?"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="diff">
+    <h2>Token diff</h2>
+    <p class="sub">Green rows are tokens the exported markup actually references. Everything else is dead weight in the config.</p>
+    <table>
+      <thead><tr><th style="width:26%">Token</th><th style="width:27%">System A</th><th style="width:27%">System B</th><th style="width:20%">In markup?</th></tr></thead>
+      <tbody>
+        <tr class="row-live"><td class="name">font family</td><td>Manrope</td><td>Inter</td><td class="yes">✓ everywhere</td></tr>
+        <tr class="row-live"><td class="name">radius DEFAULT / lg / xl</td><td>.5 / .75 / 1rem</td><td>.25 / .5 / .75rem</td><td class="yes">✓ everywhere</td></tr>
+        <tr class="row-live"><td class="name">surface / background</td><td><span class="sw" style="background:#f4fafd"></span>#f4fafd</td><td><span class="sw" style="background:#f7f9fb"></span>#f7f9fb</td><td class="yes">✓ page bg</td></tr>
+        <tr class="row-live"><td class="name">surface-container-low</td><td><span class="sw" style="background:#eef5f7"></span>#eef5f7</td><td><span class="sw" style="background:#f2f4f6"></span>#f2f4f6</td><td class="yes">✓ inputs, footer</td></tr>
+        <tr><td class="name">primary</td><td><span class="sw" style="background:#00a8cc"></span>#00a8cc</td><td><span class="sw" style="background:#5c5d6e"></span>#5c5d6e</td><td class="no">once (border/10)</td></tr>
+        <tr><td class="name">secondary-container</td><td><span class="sw" style="background:#e6e6fa"></span>#e6e6fa</td><td><span class="sw" style="background:#00f8f8"></span>#00f8f8</td><td class="no">selection only</td></tr>
+        <tr><td class="name">on-secondary-container</td><td><span class="sw" style="background:#00a8cc"></span>#00a8cc</td><td><span class="sw" style="background:#006e6e"></span>#006e6e</td><td class="no">never</td></tr>
+        <tr><td class="name">surface-tint</td><td><span class="sw" style="background:#00a8cc"></span>#00a8cc</td><td><span class="sw" style="background:#5c5d6e"></span>#5c5d6e</td><td class="no">never</td></tr>
+        <tr><td class="name">secondary-fixed</td><td><span class="sw" style="background:#00e1ff"></span>#00e1ff</td><td><span class="sw" style="background:#00fbfb"></span>#00fbfb</td><td class="no">never</td></tr>
+        <tr><td class="name">secondary-fixed-dim</td><td><span class="sw" style="background:#00d4ff"></span>#00d4ff</td><td><span class="sw" style="background:#00dddd"></span>#00dddd</td><td class="no">never</td></tr>
+        <tr><td class="name">surface-bright</td><td><span class="sw" style="background:#f4fafd"></span>#f4fafd</td><td><span class="sw" style="background:#f7f9fb"></span>#f7f9fb</td><td class="no">never</td></tr>
+        <tr><td class="name">surface-dim</td><td><span class="sw" style="background:#d4dbdd"></span>#d4dbdd</td><td><span class="sw" style="background:#d8dadc"></span>#d8dadc</td><td class="no">never</td></tr>
+        <tr class="same"><td class="name">secondary <b>— identical</b></td><td><span class="sw" style="background:#00a8cc"></span>#00a8cc</td><td><span class="sw" style="background:#00a8cc"></span>#00a8cc</td><td class="yes">✓ every CTA</td></tr>
+        <tr class="same"><td class="name">primary-container <b>— identical</b></td><td><span class="sw" style="background:#e6e6fa"></span>#e6e6fa</td><td><span class="sw" style="background:#e6e6fa"></span>#e6e6fa</td><td class="yes">✓ every container</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

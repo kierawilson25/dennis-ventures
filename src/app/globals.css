@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/*
+  Design tokens — ported from the Stitch export's Tailwind v3 `tailwind.config`
+  object (see `HTML files/`) to Tailwind v4 `@theme`. System A is canonical:
+  Manrope + aqua accent + rounded corners. Solutions was exported against a
+  forked system (Inter / grey / tight radii) and is re-skinned to match.
+
+  Names are semantic rather than Material. The export shipped `primary` and
+  `secondary` as the same aqua while using `primary-container` for every
+  lavender surface, so the original names described nothing.
+*/
+@theme {
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  /* Accent — every CTA, active link, icon, and rule. Was `secondary`/`primary`. */
+  --color-accent: #00a8cc;
+  --color-accent-ink: #ffffff;
+
+  /* Lavender — badges, card wells, CTA banners. Was `primary-container`. */
+  --color-lavender: #e6e6fa;
+  --color-lavender-ink: #656677;
+
+  /* Pale aqua — alternate icon wells. Was `tertiary-container`. */
+  --color-aqua-soft: #d5ebf4;
+
+  /* Surfaces */
+  --color-surface: #f4fafd;
+  --color-surface-sunken: #eef5f7;
+  --color-surface-raised: #eceef0;
+
+  /* Text */
+  --color-ink: #191c1e;
+  --color-ink-muted: #46464c;
+
+  /* Lines */
+  --color-outline: #77767d;
+  --color-outline-soft: #c7c5cc;
+
+  --color-error: #ba1a1a;
+
+  /* Radii — System A's looser scale. */
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* Layout rhythm */
+  --spacing-gutter: 24px;
+  --spacing-section: 120px;
+  --spacing-margin-mobile: 20px;
+  --spacing-margin-desktop: 64px;
+  --container-site: 1200px;
+
+  /* Type scale. `*-tight` variants are the mobile sizes the export applied via
+     md: pairs, e.g. `text-headline-xl-tight md:text-headline-xl`. */
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.6;
+  --text-body-lg--font-weight: 400;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.6;
+  --text-body-md--font-weight: 400;
+
+  --text-label-sm: 14px;
+  --text-label-sm--line-height: 1;
+  --text-label-sm--letter-spacing: 0.05em;
+  --text-label-sm--font-weight: 500;
+
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 1.4;
+  --text-headline-md--font-weight: 500;
+
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 1.3;
+  --text-headline-lg--font-weight: 600;
+
+  --text-headline-lg-tight: 28px;
+  --text-headline-lg-tight--line-height: 1.3;
+  --text-headline-lg-tight--font-weight: 600;
+
+  --text-headline-xl: 48px;
+  --text-headline-xl--line-height: 1.2;
+  --text-headline-xl--letter-spacing: -0.02em;
+  --text-headline-xl--font-weight: 600;
+
+  --text-headline-xl-tight: 36px;
+  --text-headline-xl-tight--line-height: 1.2;
+  --text-headline-xl-tight--font-weight: 600;
+}
+
+/*
+  No dark mode. The scaffold's default `prefers-color-scheme` block is removed
+  deliberately: all four exports declare `darkMode: "class"` but contain zero
+  dark variants, so dark mode is declared, not designed. Building it means
+  designing it first — tracked as out of MVP scope in PRD.md §4.
+*/
+
+@layer components {
+  /*
+    Defined once here because the exports are inconsistent about it:
+    `.glass-card` is used throughout solution-code.html and `.hero-gradient` in
+    contact-code.html, but neither file has a <style> block at all — both are
+    broken in the source, not just in translation.
+  */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(230, 230, 250, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(200, 200, 255, 0.1);
+  }
+
+  .hero-gradient {
+    background: radial-gradient(circle at 70% 30%, #e6e6fa 0%, #f4fafd 100%);
+  }
+
+  /* The dotted field behind every CTA banner. */
+  .cta-dots {
+    background-image: radial-gradient(#00a8cc 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
