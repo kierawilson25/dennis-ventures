@@ -1,3 +1,5 @@
+import type { IconName } from "@/components/ui/icons";
+
 export const site = {
   name: "Dennis Ventures",
   tagline: "Empowering Transitions with Calm & Clarity",
@@ -46,11 +48,20 @@ export const certificationList = [
   {
     abbr: "SDVOSB",
     full: "Service-Disabled Veteran-Owned Small Business",
+    // Per-cert glyph for the Solutions "Strategic Transitions" cards. About's
+    // cert row uses a uniform `verified` badge and ignores this field.
+    icon: "shield_person",
     verified: true,
   },
   {
     abbr: "WOSB",
     full: "Woman-Owned Small Business",
+    icon: "workspace_premium",
     verified: false, // ⚠️ D8 — unverified; confirm with founder before launch.
   },
-] as const;
+] as const satisfies readonly {
+  abbr: string;
+  full: string;
+  icon: IconName;
+  verified: boolean;
+}[];

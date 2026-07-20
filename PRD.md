@@ -422,7 +422,7 @@ The unit of work is a **feature**: one `/plan-feature` cycle producing a plan in
 | **F0** | **Foundation** — tokens, primitives, `TopNav` + mobile menu, `Footer`, `layout` | *(none — see note)* | all four | — | ✅ Built |
 | **F1** | **Home page** | `.agents/plans/port-home-page.md` | `home-code.html` | F0 | ✅ **Built & signed off** (2026-07-19) — automated gates green; mobile hero-badge collision fixed; visual review passed |
 | **F2** | **About page** | `.agents/plans/port-about-page.md` | `aboutcode.html` | F0 | ✅ **Built** (2026-07-19) — content approved; automated gates green. WOSB (D8) deferred; values shipped as approved-for-now drafts |
-| **F3** | **Solutions page** (incl. re-skin off the forked system) | `.agents/plans/port-solutions-page.md` | `solution-code.html` | F0 | ⬜ Not planned |
+| **F3** | **Solutions page** (incl. re-skin off the forked system) | `.agents/plans/port-solutions-page.md` | `solution-code.html` | F0 | ✅ **Built** (2026-07-19) — re-skinned to System A (R1/D1 closed); automated gates green; desktop visual verified. WOSB (D8) left in per request. |
 | **F4** | **Contact page** — layout, form UI, states | `.agents/plans/port-contact-page.md` | `contact-code.html` | F0 | ⬜ Not planned |
 | **F5** | **Contact form backend** — `zod`, route handler, Resend, honeypot, rate limit | `.agents/plans/contact-form-backend.md` | *none — written from scratch* | F4 | ⬜ Not planned |
 | **F6** | **SEO + AEO** — cross-cutting discoverability infrastructure (see §16b) | `.agents/plans/seo-aeo.md` | *none — additive* | F1–F5 | ⬜ Not planned — **later phase** |
