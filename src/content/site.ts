@@ -24,19 +24,15 @@ export const bookingCta = {
   label: "Book a Consultation",
 } as const;
 
-/**
- * Footer links. These destinations do not exist yet — see PRD.md D6. They are
- * rendered because the design calls for them; the pages are a content
- * dependency, not a build one.
- */
-export const footerLinks = [
-  { href: "/privacy", label: "Privacy Policy" },
-  { href: "/terms", label: "Terms of Service" },
-  { href: "/sdvosb", label: "SDVOSB Status" },
-  { href: "/wosb", label: "WOSB Status" },
-] as const;
-
 export const certifications = "SDVOSB & WOSB Certified";
+
+/**
+ * Public inbox for the contact-form error fallback (PRD.md R7 — never fake
+ * success; offer a direct route out). Distinct from the server-only
+ * CONTACT_TO_EMAIL that F5's Resend delivery will use.
+ * ⚠️ PLACEHOLDER pending the real address + domain (PRD.md D4 — domain undecided).
+ */
+export const contactEmail = "hello@dennisventures.com";
 
 /**
  * Structured certification list — drives the About page's certification row.
