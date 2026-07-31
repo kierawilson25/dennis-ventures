@@ -14,6 +14,13 @@ import { hero } from "@/content/home";
  * No negative z-index: the image and gradient are both absolute, and the
  * gradient paints above the image purely by DOM order.
  *
+ * The content block is top-anchored at a fixed offset (pt-36) rather than
+ * vertically centered in the full-height section. Centering made the gap
+ * between the fixed nav and the badge depend on viewport height (and needed
+ * a desktop-only negative margin to compensate); a fixed offset keeps that
+ * gap consistent across screen sizes and sits higher up on tall viewports.
+ * The section stays min-h-screen so the photo still fills the viewport.
+ *
  * Two fixes vs HTML files/home-code.html:
  *  - Defect 1: the lede is one styled <p>, not an empty <p> + <br> spacers +
  *    raw text. The export's markup was malformed.
@@ -22,7 +29,7 @@ import { hero } from "@/content/home";
  */
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden pt-20">
+    <section className="relative flex min-h-screen items-start overflow-hidden pt-36">
       <Image
         src={heroImage}
         // Decorative: a pale sunrise over open water. The <h1> carries all
@@ -44,17 +51,13 @@ export function Hero() {
       />
 
       <Container className="relative z-10 flex flex-col items-center text-center">
-        {/* On md+ the content sits optically high (offsetting the min-h-screen
-            centering, matching the export). On mobile that upward pull dragged
-            the badge behind the fixed header, so the offset is md-only — mobile
-            keeps the content centered and clear of the nav. */}
-        <div className="max-w-4xl md:-mt-24">
+        <div className="max-w-4xl">
           <Badge>{hero.badge}</Badge>
           <h1 className="mt-6 text-headline-xl-tight leading-tight text-ink md:text-headline-xl">
             {hero.headline.lead}{" "}
             <span className="text-accent">{hero.headline.accent}</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-body-lg text-ink-muted">
+          <p className="mx-auto mt-[90px] max-w-xl text-body-lg text-ink-muted">
             {hero.lede}
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">

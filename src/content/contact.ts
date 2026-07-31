@@ -42,3 +42,15 @@ export const imagery = {
   overlineSubtitle: "In a sea of change.",
   imageAlt: "", // decorative; the overlay text + form carry all meaning
 } as const;
+
+/**
+ * The compact closing prompt below the form (CtaBanner size="sm"). No export
+ * precedent — new for this page. The action reuses site.bookingCta directly
+ * (not a copy) so the href stays a single sitewide placeholder: it routes to
+ * /contact today, and updating that one field once the founder's Google Meet
+ * booking link exists fixes this box and the nav CTA together.
+ */
+export const cta = {
+  heading: "Prefer to start with a meeting?",
+  body: "You can book a meeting with Dennis Ventures directly using this link and start your journey.",
+} as const;
