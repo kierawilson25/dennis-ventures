@@ -10,10 +10,14 @@ import { contactSchema, getFieldErrors } from "@/lib/contact-schema";
  * onboarding@resend.dev address since the sending domain isn't verified yet
  * (no DNS access on dennisventuresllc.com) — swap to a verified domain
  * address once that's available.
+ *
+ * The client is constructed inside the handler, not at module scope — Next
+ * executes this file's top level during the build's page-data-collection
+ * step, before build-time env vars are guaranteed to be populated.
  */
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   let body: unknown;
   try {
     body = await request.json();
