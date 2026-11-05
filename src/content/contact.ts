@@ -29,6 +29,7 @@ export const form = {
     heading: "Message sent.",
     body: "Thank you for reaching out. We'll be in touch shortly.",
     resetLabel: "Send another message",
+    bookLabel: "Book a session with Tosha",
   },
   error: {
     // The email address is interpolated in the component from site.contactEmail.
@@ -46,9 +47,8 @@ export const imagery = {
 /**
  * The compact closing prompt below the form (CtaBanner size="sm"). No export
  * precedent — new for this page. The action reuses site.bookingCta directly
- * (not a copy) so the href stays a single sitewide placeholder: it routes to
- * /contact today, and updating that one field once the founder's Google Meet
- * booking link exists fixes this box and the nav CTA together.
+ * (not a copy) so both this box and the nav CTA always point at the same
+ * booking link.
  */
 export const cta = {
   heading: "Prefer to start with a meeting?",

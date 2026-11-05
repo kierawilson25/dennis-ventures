@@ -73,8 +73,7 @@ export default function ContactPage() {
       </section>
 
       {/* Compact closing prompt — half-height CtaBanner, no export precedent.
-          action reuses site.bookingCta directly: a placeholder href until the
-          founder's Google Meet booking link exists (see content/contact.ts). */}
+          action reuses site.bookingCta directly (see content/contact.ts). */}
       <CtaBanner
         heading={cta.heading}
         body={cta.body}

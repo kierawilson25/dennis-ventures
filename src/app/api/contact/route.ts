@@ -1,15 +1,23 @@
+import { Resend } from "resend";
+import { renderContactEmail } from "@/lib/contact-email";
 import { contactSchema, getFieldErrors } from "@/lib/contact-schema";
 
 /**
  * Contact form endpoint. Validates with the SAME schema the client uses
  * (PRD.md §10 — never trust the client) and returns the documented JSON shapes.
  *
- * F4 STUB: this does not send email. The user has no Resend key yet, so a valid
- * submission is validated and acknowledged but not delivered. F5 replaces the
- * marked block with real Resend delivery to CONTACT_TO_EMAIL and adds honeypot
- * hardening + rate limiting (429). The contract here is what F5 builds on.
+ * F5: delivers via Resend to CONTACT_TO_EMAIL. Sends from the shared
+ * onboarding@resend.dev address since the sending domain isn't verified yet
+ * (no DNS access on dennisventuresllc.com) — swap to a verified domain
+ * address once that's available.
+ *
+ * The client is constructed inside the handler, not at module scope — Next
+ * executes this file's top level during the build's page-data-collection
+ * step, before build-time env vars are guaranteed to be populated.
  */
 export async function POST(request: Request) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   let body: unknown;
   try {
     body = await request.json();
@@ -31,12 +39,25 @@ export async function POST(request: Request) {
     return Response.json({ ok: true });
   }
 
-  // F4 STUB — no email is sent (no Resend key yet). F5 swaps this for real
-  // delivery. Log server-side so the success path is observable in dev.
-  console.info("[contact] valid submission (delivery deferred to F5):", {
-    name: parsed.data.name,
-    email: parsed.data.email,
+  const { name, email, message } = parsed.data;
+  const { html, text } = renderContactEmail({ name, email, message });
+
+  const { error } = await resend.emails.send({
+    from: "Dennis Ventures Contact Form <onboarding@resend.dev>",
+    to: process.env.CONTACT_TO_EMAIL!,
+    replyTo: email,
+    subject: `New contact form submission from ${name}`,
+    html,
+    text,
   });
+
+  if (error) {
+    console.error("[contact] Resend delivery failed:", error);
+    return Response.json(
+      { ok: false, error: "Could not send your message. Please try again." },
+      { status: 502 },
+    );
+  }
 
   return Response.json({ ok: true });
 }
