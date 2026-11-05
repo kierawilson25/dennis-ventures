@@ -16,12 +16,14 @@ export const navLinks = [
 ] as const;
 
 /**
- * The nav CTA. Routes to /contact for MVP; a scheduler (Cal.com/Calendly) can
- * replace this href without touching any component. See PRD.md §4.
+ * The nav CTA. Links directly to the founder's Google Meet booking page,
+ * opened in a new tab since it navigates away from the site.
  */
 export const bookingCta = {
-  href: "/contact",
+  href: "https://calendar.app.google/uWJxC6uNmhgFjEcu9",
   label: "Book a Consultation",
+  target: "_blank",
+  rel: "noopener noreferrer",
 } as const;
 
 export const certifications = "SDVOSB & WOSB Certified";

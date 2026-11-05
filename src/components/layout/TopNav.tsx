@@ -113,7 +113,13 @@ export function TopNav() {
         </ul>
 
         <div className="hidden md:block">
-          <Button href={bookingCta.href} size="sm" className="font-semibold">
+          <Button
+            href={bookingCta.href}
+            target={bookingCta.target}
+            rel={bookingCta.rel}
+            size="sm"
+            className="font-semibold"
+          >
             {bookingCta.label}
           </Button>
         </div>
@@ -164,6 +170,8 @@ export function TopNav() {
         <div className="px-margin-mobile pb-6 pt-2">
           <Button
             href={bookingCta.href}
+            target={bookingCta.target}
+            rel={bookingCta.rel}
             onClick={closeMenu}
             size="sm"
             className="w-full"

@@ -9,7 +9,7 @@ import {
   getFieldErrors,
   type ContactInput,
 } from "@/lib/contact-schema";
-import { contactEmail } from "@/content/site";
+import { bookingCta, contactEmail } from "@/content/site";
 import { form as copy } from "@/content/contact";
 
 /**
@@ -99,7 +99,7 @@ export function ContactForm() {
       <div
         role="status"
         aria-live="polite"
-        className="glass-card flex flex-col items-start rounded-xl p-8 md:p-12"
+        className="glass-card flex flex-col items-center rounded-xl p-8 text-center md:p-12"
       >
         <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-lg bg-lavender text-accent">
           <Icon name="verified" size={28} />
@@ -110,15 +110,24 @@ export function ContactForm() {
         <p className="mt-2 text-body-md leading-relaxed text-ink-muted">
           {copy.success.body}
         </p>
-        <Button
-          type="button"
-          variant="outline"
-          size="sm"
-          className="mt-8"
-          onClick={() => setStatus("idle")}
-        >
-          {copy.success.resetLabel}
-        </Button>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={() => setStatus("idle")}
+          >
+            {copy.success.resetLabel}
+          </Button>
+          <Button
+            href={bookingCta.href}
+            target={bookingCta.target}
+            rel={bookingCta.rel}
+            size="sm"
+          >
+            {copy.success.bookLabel}
+          </Button>
+        </div>
       </div>
     );
   }

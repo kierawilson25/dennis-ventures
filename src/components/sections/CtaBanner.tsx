@@ -20,7 +20,7 @@ export function CtaBanner({
 }: {
   heading: string;
   body?: string;
-  action: { href: string; label: string };
+  action: { href: string; label: string; target?: string; rel?: string };
   size?: "lg" | "sm";
 }) {
   const compact = size === "sm";
@@ -56,6 +56,8 @@ export function CtaBanner({
             ) : null}
             <Button
               href={action.href}
+              target={action.target}
+              rel={action.rel}
               size={compact ? "md" : "lg"}
               className={compact ? "mt-6" : "mt-10"}
             >
